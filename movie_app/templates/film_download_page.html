@@ -85,8 +85,12 @@
                     <img src="{{ im.url }}" alt="" class="Poster">
                 {% endthumbnail %}
                 <video class="TrlVideo" controls poster="{{ film.background.url }}">
-                    <source src="">
+                    {% if trailer %}                    
+                    <source src="{{ trailer }}" type="video/mp4">
                     Your Browser doesn't support this tag
+                    {% else %}
+                    <p>No trailer available for this film.</p>
+                   {% endif %}
                 </video>
             </div>
             <div class="DownloadBox">

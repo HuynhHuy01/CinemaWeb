@@ -2,7 +2,9 @@ from django.db.models import Count
 from django.views.generic import DetailView, ListView
 from utils.tools import get_client_ip
 from .models import Serie, Film, Part, Season, FilmByQuality, FilmVisit, SerieVisit, Genre, Date
+from django.shortcuts import get_object_or_404, render
 
+from django.views import View
 
 class SerieComponent(DetailView):
     template_name = 'serie_download_page.html'
@@ -14,6 +16,7 @@ class SerieComponent(DetailView):
         loaded_serie = self.object
         context['seasons'] = Season.objects.filter(serie__slug=loaded_serie.slug).all()
         context['parts'] = Part.objects.filter(season__serie__slug=loaded_serie.slug).all()
+        context['trailer'] = loaded_serie.trailer.url if loaded_serie.trailer else None
         context['related_series'] = Serie.objects.filter(genre=loaded_serie.genre.first()).exclude(pk=loaded_serie.id)
         if self.request.user.is_authenticated:
             context['is_favorite'] = self.request.user.saved_series.filter(pk=loaded_serie.id).exists()
@@ -41,6 +44,7 @@ class FilmComponent(DetailView):
         loaded_film = self.object
         context['film_qualities'] = FilmByQuality.objects.prefetch_related().filter(film__slug=loaded_film.slug).all()
         context['related_films'] = Film.objects.filter(genre=loaded_film.genre.first()).exclude(pk=loaded_film.id)
+        context['trailer'] = loaded_film.trailer.url if loaded_film.trailer else None
         if self.request.user.is_authenticated:
             context['is_favorite'] = self.request.user.saved_films.filter(pk=loaded_film.id).exists()
 
