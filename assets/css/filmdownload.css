@@ -1,0 +1,34 @@
+.Rate {
+    display: inline-block;
+    direction: rtl;
+}
+
+.Rate input[type="radio"] {
+    display: none;
+}
+
+.Rate label {
+    font-size: 30px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.Rate input[type="radio"]:checked~label {
+    color: gold;
+}
+
+.Rate label:hover,
+.Rate label:hover~label {
+    color: gold;
+}
+
+.star.full {
+    color: gold;
+    /* Full star color (gold) */
+}
+
+.star.empty {
+    color: #ccc;
+    /* Empty star color (gray) */
+}

@@ -98,10 +98,10 @@
     color: #c59b08;
 }
 
-.saveBox
+/* .saveBox
 {
     margin-top: 68px;
-}
+} */
 .saveBox i
 {
     margin-top: 25px;
@@ -603,3 +603,4 @@
         font-size: 15px;
     }
 }
+

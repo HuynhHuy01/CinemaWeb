@@ -90,7 +90,15 @@
                    {% endif %}
                 </video>
             </div>
+
+
+            
             <div class="DownloadBox">
+                {% if user.is_authenticated %}   
+                <div class="DWTitle">
+                    <a href="">Booking</a>
+               </div>
+               {% endif %}
                 {% for season in seasons %}
                     <div class="DWContainer">
                         <div class="DWTitle">Season: {{ season.number }} - {{ season.quality }}</div>

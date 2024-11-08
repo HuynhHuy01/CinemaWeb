@@ -117,6 +117,11 @@ body
 {
     width: auto;
 }
+
+.RememberMeBox p{
+    margin-top: 0.5rem;
+} 
+
 .confirmBox
 {
     width: 90%;
@@ -204,6 +209,7 @@ body
     font-weight: 600;
     font-size: 19px;
     margin-left: 5px;
+    margin-top: 1rem;
 }
 .GoogleLogin i
 {
@@ -213,8 +219,8 @@ body
 .LoginBoxFooter
 {
     position: absolute;
-    bottom: 15px;
-    margin: 0 auto 0 auto;
+    /* bottom: 15px; */
+    margin: 0.5em auto 0 auto;
     left: 50%;
     transform: translate(-50%,0);
 }

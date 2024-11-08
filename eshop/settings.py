@@ -113,8 +113,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Ho_Chi_Minh'
 USE_I18N = True
 
 USE_TZ = True
@@ -137,3 +137,8 @@ STATIC_ROOT = BASE_DIR / 'static_cdn'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+VNPAY_RETURN_URL = 'http://localhost:8888/movies/payment_return'  # get from config
+VNPAY_PAYMENT_URL = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'  # get from config
+VNPAY_API_URL = 'https://sandbox.vnpayment.vn/merchant_webapi/api/transaction'
+VNPAY_TMN_CODE = '6W9TS7YK'  # Website ID in VNPAY System, get from config
+VNPAY_HASH_SECRET_KEY = '5RQM6SIK49RODRCKZ5JZ78E4684S3O7P'  # Secret key for create checksum,get from config
